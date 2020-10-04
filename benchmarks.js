@@ -13,11 +13,12 @@ enabledLibs = {
   preact: true,
   react: true,
   vue: true,
-  inferno: true
+  inferno: true,
+  "atom-iq": true
 };
 
 enabledBenchmarks = {
-  "search-results": true,
+  "search-results": false,
   "color-picker": true
 };
 
