@@ -1,0 +1,3 @@
+{
+  "plugins": [["@atom-iq/babel-plugin-jsx", { "noImports": true }]]
+}

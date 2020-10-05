@@ -18,7 +18,7 @@ enabledLibs = {
 };
 
 enabledBenchmarks = {
-  "search-results": false,
+  "search-results": true,
   "color-picker": true
 };
 
