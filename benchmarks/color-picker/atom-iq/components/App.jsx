@@ -3,23 +3,25 @@ var createState = AtomiQ.createState;
 var createRvdElement = AtomiQ.createRvdElement;
 var rxOperators = require("rxjs/operators");
 var map = rxOperators.map;
+var switchMap = rxOperators.switchMap;
 var distinctUntilChanged = rxOperators.distinctUntilChanged;
 var observeOn = rxOperators.observeOn
 var animationFrameScheduler = require("rxjs").animationFrameScheduler
+var of = require("rxjs").of
 
 module.exports = ({ colors, onMount }) => {
   const [selectedColorIndex, nextSelectedColorIndex] = createState(0);
   onMount(nextSelectedColorIndex);
 
-  const selectedColorName = observeOn(animationFrameScheduler)(map(index => {
-    return colors[index].name
-  })(selectedColorIndex))
+  const selectedColorName = switchMap(index => {
+    return of(colors[index].name, animationFrameScheduler)
+  })(selectedColorIndex)
 
-  const getClassName = (i) => (source) => observeOn(animationFrameScheduler)(
+  const getClassName = (i) => (source) =>
     distinctUntilChanged()(map(index => index === i ? "color selected" : "color")(source))
-  );
 
-  setTimeout(() => window.onMount());
+
+  window.onMount();
 
   return (
     createRvdElement(1, 'div', 'colors', null, [

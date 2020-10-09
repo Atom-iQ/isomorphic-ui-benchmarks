@@ -28,7 +28,7 @@
   "author": "Patrick Steele-Idem <pnidem@gmail.com",
   "license": "MIT",
   "dependencies": {
-    "@atom-iq/core": "0.1.0-alpha.5",
+    "@atom-iq/core": "0.1.0-alpha.8",
     "@babel/core": "^7.6.4",
     "@babel/preset-env": "^7.6.3",
     "@babel/preset-react": "^7.6.3",

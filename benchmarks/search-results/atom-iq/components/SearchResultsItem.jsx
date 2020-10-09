@@ -4,8 +4,13 @@ var createState = AtomiQ.createState;
 
 var rxOperators = require("rxjs/operators");
 var map = rxOperators.map;
+var switchMap = rxOperators.switchMap;
 var distinctUntilChanged = rxOperators.distinctUntilChanged;
 var tap = rxOperators.tap;
+
+var rxjs = require("rxjs");
+var of = rxjs.of
+var animationFrameScheduler = rxjs.animationFrameScheduler
 
 module.exports = ({ item }) => {
   const [purchased, nextPurchased] = createState(false);
@@ -35,8 +40,8 @@ module.exports = ({ item }) => {
   )(purchased))
 
   const mapItemField = (field) => distinctUntilChanged()(
-    map(
-      item => field === "id" ? "/buy/" + item.id : item[field]
+    switchMap(
+      item => of(field === "id" ? "/buy/" + item.id : item[field], animationFrameScheduler)
     )(item)
   );
 

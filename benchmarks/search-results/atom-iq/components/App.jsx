@@ -5,11 +5,11 @@ var createRvdElement = AtomiQ.createRvdElement;
 var rxOperators = require("rxjs/operators");
 var map = rxOperators.map;
 var distinctUntilChanged = rxOperators.distinctUntilChanged;
-var observeOn = rxOperators.observeOn
-var subscribeOn = rxOperators.subscribeOn
+var switchMap = rxOperators.switchMap
 var rxjs = require("rxjs");
 var animationFrameScheduler = rxjs.animationFrameScheduler
 var pipe = rxjs.pipe;
+var of = rxjs.of
 
 var SearchResultsItem = require("./SearchResultsItem");
 var Footer = require("./Footer");
@@ -19,8 +19,7 @@ module.exports = ({ searchResultsData }) => {
   window.onMount()
 
   const getItem = index => pipe(
-    map(results => results.items[index]),
-    observeOn(animationFrameScheduler)
+    switchMap(results => of(results.items[index], animationFrameScheduler))
   )(searchResultsData);
 
   const items = pipe(

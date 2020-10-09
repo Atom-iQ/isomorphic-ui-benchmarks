@@ -2,7 +2,7 @@ var searchResultsData = require("./search-results-data.json");
 
 exports.performSearch = function(input) {
   var pageIndex = input.pageIndex || 0;
-  var pageSize = 100;
+  var pageSize = 20;
   var start = pageIndex * pageSize;
 
   var items = [];
