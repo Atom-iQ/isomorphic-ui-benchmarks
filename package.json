@@ -28,7 +28,7 @@
   "author": "Patrick Steele-Idem <pnidem@gmail.com",
   "license": "MIT",
   "dependencies": {
-    "@atom-iq/core": "0.1.0-alpha.8",
+    "@atom-iq/core": "0.1.0-beta.1",
     "@babel/core": "^7.6.4",
     "@babel/preset-env": "^7.6.3",
     "@babel/preset-react": "^7.6.3",
@@ -72,7 +72,7 @@
   },
   "devDependencies": {
     "@atom-iq/babel-plugin-jsx": "0.1.0-alpha.6",
-    "@atom-iq/cli": "0.1.0-alpha.5",
+    "@atom-iq/cli": "0.1.0-beta.0",
     "eslint": "^6.5.1",
     "eslint-config-prettier": "^6.4.0",
     "husky": "^3.0.9",
